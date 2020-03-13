@@ -52,7 +52,50 @@ CSS Variables allow you to update the entire app using one input point. This exa
 - Introduced me to using CSS variables. Helpful as when using SASS, the preprocessor variable values become fixed values, whereas CSS allows you to change the value of variables throughout the lifecycle of your program.
 - Practiced using `data-...` attributes and learnt that you can call all `data-...` attributes using `this.datset`.
 
+1. Assign variables and default values to the root:
+    ```css
+    :root { /* Highest level - define default values for variables here */
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 10px;
+    }
+    ```
 
+2. Add variables to styles:
+    ```css
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+    ```
+ 
+3. Access variables in JavaScript:
+    ```javascript
+     // Select all inputs on page
+    const inputs = document.querySelectorAll('.controls input') //returns a node list (not an array) 
+
+    function handleUpdate() {
+      const suffix = this.dataset.sizing || '' //or nothing if there is no suffix e.g. px
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix) //updates the element with new style
+    }
+
+    // Creates event listeners for each input
+    inputs.forEach(input => input.addEventListener('change', handleUpdate))
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate))
+    ```
+ 
+**NOTE**: In calling `.querySelector()` or `.querySelectorAll()` we recieve a data structure that looks like an `array` but is actually a `node list`. 
+The `listNode` object that we obtain (can be viewed in the console under proto) has a reduced API.  
+
+To convert it to an array:
+ 
+```javascript
+const inputs = document.querySelectorAll('.controls input')
+const inputsArr1 = Array.from(inputs)
+//OR
+const inputsArr2 = [...inputs]
+```
 
 
 
