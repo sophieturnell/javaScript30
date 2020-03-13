@@ -99,4 +99,9 @@ const inputsArr2 = [...inputs]
 
 
 
+## Day 4 - Array Cardio Day 1
 
+Focus on revising array methods.
+
+Introduced to:
+- `console.table()` shows a table of the data returned.
