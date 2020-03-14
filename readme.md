@@ -105,3 +105,7 @@ Focus on revising array methods.
 
 Introduced to:
 - `console.table()` shows a table of the data returned.
+- Added age column to check returning in the correct order - better way to do this?
+- Different answer for aggregate age in question 4 - misinterpretting the question?
+- Add Boulevard code example
+- Helped with familiarity running code in the console.
