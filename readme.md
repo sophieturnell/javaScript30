@@ -8,6 +8,8 @@ A 30 day JavaScript challenge with no jQuery, no pre-processors and no framework
 [Day 2 - CSS & JS Clock](#day-2---css-&-js-clock)  
 [Day 3 - Playing with CSS Variables & JS](#day-3---playing-with-css-variables-&-js)  
 [Day 4 - Array Cardio Day 1](#day-4---array-cardio-day-1)  
+[Day 5 - Flex Panels Image Gallery](#day-5---flex-panels-image-gallery)  
+
 
 ## Deployment
 Use the "clone or download" button and open the relevant "Starter" HTML file in your browser.
@@ -194,4 +196,13 @@ I ran the below code by typing it directly into the browser console.
 
 ---
 
-## Day 5 - 
+## Day 5 - Flex Panels Image Gallery
+
+- **flex-grow**, **flex-shrink** and **flex-basis**: `flex: 1 0 auto;`
+flex-grow: A number specifying how much the item will grow relative to the rest of the flexible items.
+flex-shrink A number specifying how much the item will shrink relative to the rest of the flexible items
+flex-basis The length of the item. Legal values: "auto", "inherit", or a number followed by "%", "px", "em" or any other length unit.
+The key point here is that flex-basis requires a length unit.
+- `.panel > *:first-child` selects the first child element in the panel class. https://www.w3schools.com/cssref/css_selectors.asp
+- toggling classes on and off https://www.w3schools.com/jsref/prop_element_classlist.asp
+- `flex: 5;` short for fllex-grow. It will take 5x the amount of room as the rest of the childern (other items in the "panel" class.

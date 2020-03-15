@@ -26,6 +26,7 @@
     .panels {
       min-height: 100vh;
       overflow: hidden;
+      display: flex;
     }
 
     .panel {
@@ -36,6 +37,7 @@
       align-items: center;
       /* Safari transitionend event.propertyName === flex */
       /* Chrome + FF transitionend event.propertyName === flex-grow */
+      /* TRANSITION WHEN OPEN PANEL IMAGE */
       transition:
         font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
         flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
@@ -43,6 +45,11 @@
       font-size: 20px;
       background-size: cover;
       background-position: center;
+      flex: 1; /* evenly distributes each "panel" across the parent div with class of "panels" */
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      
     }
 
     .panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
@@ -56,7 +63,19 @@
       margin: 0;
       width: 100%;
       transition: transform 0.5s;
+      border: 1px solid red;
+      flex: 1 0 auto; /* flex-grow, flex-shrink, flex-basis */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
+    /* SELECT FIRST & LAST WORD IN EACH PANEL & MOVE IT IN/OUT OF THE SCREEN*/
+    .panel > *:first-child { transform: translateY(-100%)} /* out the top */
+    .panel.open-active > *:first-child { transform: translateY(0%)}  /* back to original position */
+    .panel > *:last-child { transform: translateY(100%)} /* out the bottom */
+    .panel.open-active > *:last-child { transform: translateY(0%)}
+    
 
     .panel p {
       text-transform: uppercase;
@@ -69,8 +88,12 @@
       font-size: 4em;
     }
 
+    /* WHEN IMAGE IS OPENED */
     .panel.open {
       font-size: 40px;
+      flex: 5; /* will take 5x the amount of room as the rest of the childern (other items in the "panel" class */
+      /* flex = shortened flex-grow */
+      
     }
 
   </style>
@@ -105,6 +128,26 @@
   </div>
 
   <script>
+
+    const panels = document.querySelectorAll('.panel')
+
+    // 2 - ADD CLASS OF OPEN & IMPLEMENT CSS 
+    function toggleOpen() {
+      this.classList.toggle('open')
+    }
+
+    // 4 - ADD CLASS OF OPEN ACTIVE
+    function toggleActive(e) {
+      // console.log(e.propertyName) //shows "open" class properties
+      if (e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active')
+      }
+    }
+
+    // 1 - RUN OPENTOGGLE WHEN PANELS ARE CLICKED
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen)) //gives reference to the function, "toggleOpen()" would run the function on page load
+    // 3 - WHEN CSS ADDED TRANSITION END
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive))
 
   </script>
 
