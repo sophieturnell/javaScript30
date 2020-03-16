@@ -198,11 +198,27 @@ I ran the below code by typing it directly into the browser console.
 
 ## Day 5 - Flex Panels Image Gallery
 
-- **flex-grow**, **flex-shrink** and **flex-basis**: `flex: 1 0 auto;`
-flex-grow: A number specifying how much the item will grow relative to the rest of the flexible items.
-flex-shrink A number specifying how much the item will shrink relative to the rest of the flexible items
-flex-basis The length of the item. Legal values: "auto", "inherit", or a number followed by "%", "px", "em" or any other length unit.
-The key point here is that flex-basis requires a length unit.
-- `.panel > *:first-child` selects the first child element in the panel class. https://www.w3schools.com/cssref/css_selectors.asp
-- toggling classes on and off https://www.w3schools.com/jsref/prop_element_classlist.asp
-- `flex: 5;` short for fllex-grow. It will take 5x the amount of room as the rest of the childern (other items in the "panel" class.
+![](https://imgur.com/x4VuoPc.jpeg)
+
+Here I used 2 events listeners:  
+1. `click` to toggle the `.open` class, increasing the panel size and font size.
+2. `transitionend` which runs once `.open` CSS transition has ended (if the event property includes `flex(-grow)`,) toggling `.open-active` and translating the text along the y axis into the page.
+
+```javascript
+    function toggleActive(e) {
+      // console.log(e.propertyName) //shows "open" class properties
+      if (e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active')
+      }
+    }
+```
+
+Notes:
+- **flex-grow**, **flex-shrink** and **flex-basis** e.g. `flex: 1 0 auto;`
+- **CSS Selectors** e.g.`.panel > *:first-child` selects the first child element in the panel class. https://www.w3schools.com/cssref/css_selectors.asp
+- **classLists** - toggling classes on and off https://www.w3schools.com/jsref/prop_element_classlist.asp
+- **e.propertyName** - returns the CSS properties of an event.
+
+
+
+
