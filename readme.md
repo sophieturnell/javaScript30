@@ -202,7 +202,7 @@ I ran the below code by typing it directly into the browser console.
 
 Here I used 2 events listeners:  
 1. `click` to toggle the `.open` class, increasing the panel size and font size.
-2. `transitionend` which runs once `.open` CSS transition has ended (if the event property includes `flex(-grow)`,) toggling `.open-active` and translating the text along the y axis into the page.
+2. `transitionend` which runs once `.open` CSS transition has run if the event property includes `flex(-grow)`. We specifiy this as the key property we are waiting for before adding the text is the enlargement of the image panel. `transitionend` toggles `.open-active` and translates the text along the y axis into the page.
 
 ```javascript
     function toggleActive(e) {
@@ -212,6 +212,7 @@ Here I used 2 events listeners:
       }
     }
 ```
+Ordinarily you can use `(e.propertyName === 'flex-grow')` for the if condition, but `.includes` is more explicit and helps with browser compatibility here.
 
 Notes:
 - **flex-grow**, **flex-shrink** and **flex-basis** e.g. `flex: 1 0 auto;`
