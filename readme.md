@@ -9,6 +9,7 @@ A 30 day JavaScript challenge with no jQuery, no pre-processors and no framework
 [Day 3 - Playing with CSS Variables & JS](#day-3---playing-with-css-variables-&-js)  
 [Day 4 - Array Cardio Day 1](#day-4---array-cardio-day-1)  
 [Day 5 - Flex Panels Image Gallery](#day-5---flex-panels-image-gallery)  
+[Day 6 - Ajax Type Ahead](#day-6---ajax-type-ahead)
 
 
 ## Deployment
@@ -220,6 +221,13 @@ Notes:
 - **classLists** - toggling classes on and off https://www.w3schools.com/jsref/prop_element_classlist.asp
 - **e.propertyName** - returns the CSS properties of an event.
 
+---
 
+## Day 6 - Ajax Type Ahead
+
+![](https://imgur.com/pufmTP9.jpeg)
+
+- fetch
+- reg ex - regular expressions. Adding variables to regex.
 
 
