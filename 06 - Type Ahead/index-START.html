@@ -26,8 +26,8 @@ const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb
 const cities = []
 
 fetch(endpoint)
-  //.then(blob => console.log(blob)) //find json in dev tools
-  .then(blob => blob.json())
+  //.then(response => console.log(response)) //find json in dev tools
+  .then(response => response.json())
   // .then(data => console.log(data))
   .then(data => cities.push(...data)) //spread the data in so as not to create a nested array (or use let rather than const for cities)
 

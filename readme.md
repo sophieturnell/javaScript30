@@ -227,7 +227,13 @@ Notes:
 
 ![](https://imgur.com/pufmTP9.jpeg)
 
-- fetch
+- Used fetch to return data from the endpoint
 - reg ex - regular expressions. Adding variables to regex.
 
+---
+
+## Day 6 - Array Cardio Day 2
+
+- console.log({isAdult}) -  shows name of the variable and the value so - `isadult: true`, rather than just `true` in the console
+- revise splice
 
