@@ -12,6 +12,10 @@
       background: #ffc600;
     }
 
+    header {
+      text-align: center;
+    }
+
     .inbox {
       max-width: 400px;
       margin: 50px auto;
@@ -56,6 +60,11 @@
    When a user clicks a checkbox, holds Shift, and then clicks another checkbox a few rows down, all the checkboxes inbetween those two checkboxes should be checked.
 
   -->
+  <header>
+    <h1>Vanilla JavaScript Checklist</h1>
+    <h3>Please hold down shift to select all items from your first to second selection</h3>
+  </header>
+
   <div class="inbox">
     <div class="item">
       <input type="checkbox">
@@ -96,6 +105,34 @@
   </div>
 
 <script>
+  const allCheckboxes = document.querySelectorAll('.inbox input[type="checkbox"]')
+  console.log(allCheckboxes)
+
+  let lastChecked
+
+  function handleCheck(e) {
+    let inBetween = false // FLAG VARIABLE
+    if (e.shiftKey && this.checked){ // if the shift key was down and box checked
+      allCheckboxes.forEach(checkbox => {
+        console.log(checkbox)
+        if (checkbox === this || checkbox === lastChecked) { // this = first checked, lastChecked = last checked (this will means it works from bottom to top too)
+          inBetween = !inBetween //switch to opposite - true/false
+          console.log('Start/Stop Here')
+        }
+        if (inBetween) { //CHECK ALL BOXES INBETWEEN 
+          checkbox.checked = true 
+        }
+
+      }) 
+    }
+    lastChecked = this
+    console.log(e)
+  }
+
+  allCheckboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck)) //click event fires even if you're using your keyboard
+  
+
 </script>
+
 </body>
 </html>
