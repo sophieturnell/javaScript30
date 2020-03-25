@@ -18,28 +18,67 @@
     }
 
     // Regular
+    console.log('hello')
 
     // Interpolated
+    console.log('I am feeling %s now!', '🥰') // can use anything not just emojis
+    // console.log(`Currently playing ${varible} tunes`) //in ES6 new method
 
     // Styled
+    console.log('%c I am some great text', 'font-size:20px; background:red; text-shadow: 10px 10px 0 blue')
 
     // warning!
+    console.warn('OH NOOO');
 
     // Error :|
+    console.error('Shit!');
 
     // Info
+    console.info('Crocodiles eat 3-4 people per year');
 
     // Testing
+    console.assert(1 === 3, 'That is wrong') //will only fire if the first statement is wrong
+
+    const p = document.querySelector('p')
+    console.assert(p.classList.contains('Ouch'), 'WRONG!')
 
     // clearing
+    // console.clear()
 
     // Viewing DOM Elements
+    console.log(p)
+    console.dir(p) // shows all methods and properties on that element
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`)
+      console.log(`This is ${dog.name}`)
+      console.log(`${dog.name} is ${dog.age} years old`)
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`)
+      console.groupEnd(`${dog.name}`)
+    })
 
-    // counting
+    // counting - running tally of number of times the seletion has occured in the console
+    console.count('Soph')
+    console.count('Soph')
+    console.count('Rich')
+    console.count('Soph')
+    console.count('Soph')
+    console.count('Rich')
+    console.count(p)
+    console.count('Soph')
+    console.count(p)
 
-    // timing
+    // timing - shows time taken to complete a task ms = milli seconds
+    console.time('fetching data')
+      fetch('https://api.github.com/users/wesbos')
+        .then(data => data.json())
+        .then(data => {
+          console.timeEnd('fetching data')
+          console.log(data)
+        })
+
+      console.table(dogs)
 
   </script>
 </body>

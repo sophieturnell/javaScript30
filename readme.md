@@ -232,8 +232,27 @@ Notes:
 
 ---
 
-## Day 6 - Array Cardio Day 2
+## Day 7 - Array Cardio Day 2
 
 - console.log({isAdult}) -  shows name of the variable and the value so - `isadult: true`, rather than just `true` in the console
 - revise splice
 
+---
+
+## Day 8 - Fun with HTML5 Canvas
+
+- Don't draw on the canvas directly, draw on the context which can be 2d or 3d (used for video games)
+- all context attributes new
+- array to array wouldn't work for some reason...
+- mouseout = mouse out of screen
+- mother effing hsl
+- ctx.globalCompositeOperation = 'multiply' //effect when you layer your drawing - google 
+
+---
+
+## Day 9 - 14 Must Know Dev Tools Tricks
+
+
+- To find where javascript of an element is in your code - select the element, then below option to take you to the line of code causing that attribute.
+- image 1
+- All bar console.log and console.table were new to me so really useful.

@@ -7,6 +7,63 @@
 <body>
 <canvas id="draw" width="800" height="800"></canvas>
 <script>
+
+const canvas = document.querySelector('#draw')
+const ctx = canvas.getContext('2d') // SELECT CONTEXT
+
+// RESIZE CANVAS TO SIZE OF WINDOW
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
+
+ctx.strokeStyle = '#BADASS' //colour
+ctx.lineJoin = 'round' 
+ctx.lineCap = 'round' // end of line
+ctx.lineWidth = 100
+// ctx.globalCompositeOperation = 'multiply' //effect when you layer your drawing - google 
+
+// DRAW ONLY WHEN MOUSE CLICKED DOWN
+let isDrawing = false //don't draw to start
+let lastX = 0 // start co-ordinates
+let lastY = 0
+let hue = 0
+let direction = true // increasing  (width size)
+
+function draw(e){
+  if (!isDrawing) return //stop function running if mouse not down
+  console.log(e)
+  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)` //hue, saturation, lightness
+  ctx.beginPath()
+  ctx.moveTo(lastX, lastY) //line from point
+  ctx.lineTo(e.offsetX, e.offsetY) //to point - 'offsetX' taken from console logging e
+  ctx.stroke() //draws line
+  lastX = e.offsetX //start point on line becomes previous end point of line
+  lastY = e.offsetY
+  // [lastX, lastY] = [e.offsetX, e.offsetY] // above - in one line = Destructuring an Array
+  hue++ //increments the hue for each point that is drawn - when goes over 360
+  if (hue >= 360) {
+    hue = 0
+  }
+  if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+    direction = !direction // flip direction if greater than 100 or les than 1 so line width decreases/increases
+  }
+  if (direction) {
+    ctx.lineWidth++
+  } else {
+    ctx.lineWidth--
+  }
+}
+
+// CLICK AND DRAG EVENT LISTENERS
+canvas.addEventListener('mousedown', (e) => {
+  isDrawing = true
+  // [lastX, lastY] = [e.offsetX, e.offsetY] // as soon as clicked down, update the x,y before move to mousemove below
+  lastX = e.offsetX //start point on line becomes previous end point of line
+  lastY = e.offsetY
+})
+canvas.addEventListener('mousemove', draw)
+canvas.addEventListener('mouseup', () => isDrawing = false)
+canvas.addEventListener('mouseout', () => isDrawing = false) //mouse out of screen
+
 </script>
 
 <style>
