@@ -199,6 +199,8 @@ I ran the below code by typing it directly into the browser console.
 
 ## Day 5 - Flex Panels Image Gallery
 
+An interactive image gallery using classess and transitions to update elements.
+
 ![](https://imgur.com/x4VuoPc.jpeg)
 
 Here I used 2 events listeners:  
@@ -225,50 +227,91 @@ Notes:
 
 ## Day 6 - Ajax Type Ahead
 
+A simple search bar using **Regular Expressions** to filter and return matching states and cities. 
+
 ![](https://imgur.com/pufmTP9.jpeg)
 
-- Used fetch to return data from the endpoint
-- reg ex - regular expressions. Adding variables to regex.
+- Used fetch to return data from the endpoint.
+- Used a Regular Expressions to match the word inputted to the data fetched.  Added variables to RegExp so that you can match whatever is input, rather than a set place. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+- `change` only fires when you submit so listen for `keyup` event.
+- Googled function for adding commas to the population number. Check how it works.
 
 ---
 
 ## Day 7 - Array Cardio Day 2
 
-INSERT IMAGE
+Covers **`some()`, `every()`, `find()`, `findIndex()`, `splice()`, and `slice()`,** including revision of Dates and `getFullYear()`.
 
-- console.log({isAdult}) -  shows name of the variable and the value so - `isadult: true`, rather than just `true` in the console
-- revise splice
+![](https://imgur.com/PriPLat.jpeg)
+
+- console.log({isAdult}) -  shows name of the variable and the value so - `isadult: true`, rather than just `true` in the console.
+- Deleting an item from an array using splice and slice:
+
+```javascript
+comments.splice(findCommentIndex, 1) 
+```
+
+Splice ammends original array.  
+findCommentIndex is the start point, 1 is the number of elements to remove from the start point, (a third value would represent what is to be inserted).
+
+```javascript
+const newComments = [
+  ...comments.slice(0, findCommentIndex),
+  ...comments.slice(findCommentIndex + 1)
+]
+```
+
+Slice creates a new array - here called `newComments`.  
+`0` is the starting point and the array is cut off before `findCommentIndex` for the first part of the array.  
+`findCommentIndex + 1` is the start point for the rest of the array, no cut off value is given.  
+This extracts the `findCommentIndex` from the array.  
+The Spread Operator, `...`, extracts the nested elements to display them in the `newComments` array.  
+
+- Look at how negative starting points work in splice and slice.
 
 ---
 
 ## Day 8 - Fun with HTML5 Canvas
 
-INSERT IMAGE
+Creates a paint-esk canvas that draws rainbow coloured lines in oscilating pen sizes.
 
-- Don't draw on the canvas directly, draw on the context which can be 2d or 3d (used for video games)
-- all context attributes new
-- array to array wouldn't work for some reason...
-- mouseout = mouse out of screen
-- mother effing hsl
-- ctx.globalCompositeOperation = 'multiply' //effect when you layer your drawing - google 
+![](https://imgur.com/vGJ7ibg.jpeg)
+
+- A good introduction to canvas and context. All context attributes were new to me e.g. `linejoin`, `linecap`.
+- Don't draw on the canvas directly, draw on the context which can be 2d or 3d (used for video games).
+- I stuggled to get the Destructuring an Array syntax to work for some reason. Commented out on line 41.
+- `mouseout` - mouse moves out of the screen.
+- Select hue range from mothereffing hsl https://mothereffinghsl.com/
+- Look at blend modes `ctx.globalCompositeOperation = 'multiply'` - the effect when you layer your drawing.
 
 ---
 
 ## Day 9 - 14 Must Know Dev Tools Tricks
 
-- INSERT CONSOLE IMAGE
+Checking out console methods including **interpolating and styling `console.log`**, and using **console. `warn`, `error`, `info`, `assert`, `dir`, `clear`, `groupCollapsed`, `groupEnd`, `count`, `time` and `table`**.
+All bar `console.log` and `console.table` were new to me so this was really insightful.
 
-- All bar console.log and console.table were new to me so really useful.
+![](https://imgur.com/WQ77DWB.jpeg)
 
-- To find where javascript of an element is in your code - select the element, then below option to take you to the line of code causing that attribute.
-- INSERT image 1
+- To find where javascript of an element is in your code - select the element, then below option to takes you to the line of code causing that attribute.
+
+![](https://imgur.com/ogrppHV.jpeg)
 
 ---
 
 ## Day 10 - Hold Shift to Check Multiple Checkboxes 
 
-INSERT IMAGE
+A checklist allowing you to select all items between 2 selected list items.
 
+![](https://imgur.com/11AU3no.jpeg)
 
+- When the first box is checked it is put into a variable.
+- `e.shiftKey` checks if shift key has been pressed and `this.checked` that the lastChecked box is ticked.
+- If this is the case I loop through all checkboxes looking for the initial box ticked, then tick all boxes unitl I reach the most recently ticked box.
+- `inBetween` is set to true when inbetween last 2 list items and currentlly not ticked or `!inBetween` when ticked to start and we want to deselect.
+- Work out how to prevent unticking a box, then selecting a box with shift, checking all boxes inbetween.
 
 ---
+
+## Day 11 - Custom HTML5 Video Player
+

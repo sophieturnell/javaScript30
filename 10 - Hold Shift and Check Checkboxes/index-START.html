@@ -112,7 +112,7 @@
 
   function handleCheck(e) {
     let inBetween = false // FLAG VARIABLE
-    if (e.shiftKey && this.checked){ // if the shift key was down and box checked
+    if (e.shiftKey && this.checked){ // if the shift key was down and box ticked
       allCheckboxes.forEach(checkbox => {
         console.log(checkbox)
         if (checkbox === this || checkbox === lastChecked) { // this = first checked, lastChecked = last checked (this will means it works from bottom to top too)
@@ -125,8 +125,12 @@
 
       }) 
     }
+    
     lastChecked = this
-    console.log(e)
+    // console.log(e)
+    console.log('lastChecked', lastChecked)
+    console.log('this', this)
+
   }
 
   allCheckboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck)) //click event fires even if you're using your keyboard
