@@ -10,6 +10,11 @@ A 30 day JavaScript challenge with no jQuery, no pre-processors and no framework
 [Day 4 - Array Cardio Day 1](#day-4---array-cardio-day-1)  
 [Day 5 - Flex Panels Image Gallery](#day-5---flex-panels-image-gallery)  
 [Day 6 - Ajax Type Ahead](#day-6---ajax-type-ahead)
+[Day 7 - Array Cardio Day 2](#day-7---array-cardio-day-2)
+[Day 8 - Fun with HTML5 Canvas](#day-8---fun-with-html5-canvas)
+[Day 9 - 14 Must Know Dev Tools Tricks](#day-9---14-must-know-dev-tools-tricks)
+[Day 10 - Hold Shift to Check Multiple Checkboxes](#day-10---hold-shift-to-check-multiple-checkboxes)
+[Day 11 - Custom HTML5 Video Player](#day-11---custom-html5-video-player)
 
 
 ## Deployment
@@ -314,4 +319,50 @@ A checklist allowing you to select all items between 2 selected list items.
 ---
 
 ## Day 11 - Custom HTML5 Video Player
+
+Building video interface. My first time using video `paused`, `currentTime`, `duration`, `timeupdate` similar to `progress`. Revised `e.offsetX`and used flag variables.
+
+![](https://imgur.com/lx1Llfl.jpeg)
+
+Key learnings:
+- `paused` is a property on video (there is not a playing property).
+- Revision of `data-...` called by `this.dataset` from lesson on day 3.
+- Creating flag variables:
+
+```javascript
+// SCRUB - CLICK TO POSITION TO PLAY FROM
+function scrub(e) {
+  console.log(e)
+  const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration 
+  // (point clicked/bar width - to give %) * length of video
+  video.currentTime = scrubTime // updates the time of video showing
+}
+
+// CREATE A FLAG VARIABLE
+// Set it to false, then when you click it becomes true
+let mousedown = false
+progress.addEventListener('click', scrub)
+progress.addEventListener('mousemove', (e) => mousedown && scrub(e)) // ALLOWS CLICK & DRAG OF PROGRESS BAR
+// checks mousedown variable and if true runs scrub (works like an inline if statment). If mousedown is false, line will return false.
+// requires e - data from event to be passed in so we know the location of the mousemove.
+progress.addEventListener('mousedown', () => mousedown = true)
+progress.addEventListener('mouseup', () => mousedown = false)
+```
+
+- Added Full Screen toggle button.
+- Other ideas to extend here: https://freshman.tech/custom-html5-video/ 
+
+---
+
+## Day 12 - Key Sequence Detection (KONAMI CODE)
+
+The secret handshake of the internet!
+https://www.howtogeek.com/659611/what-is-the-konami-code-and-how-do-you-use-it/
+App displays unicorns and rainbows when secretCode is input using https://www.cornify.com/
+
+![](https://imgur.com/9tbOAVW.jpeg)
+
+- Helped undeerstand negative splice arguments in array methods.
+
+---
 
