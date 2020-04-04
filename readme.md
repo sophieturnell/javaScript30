@@ -15,6 +15,9 @@ A 30 day JavaScript challenge with no jQuery, no pre-processors and no framework
 [Day 9 - 14 Must Know Dev Tools Tricks](#day-9---14-must-know-dev-tools-tricks)
 [Day 10 - Hold Shift to Check Multiple Checkboxes](#day-10---hold-shift-to-check-multiple-checkboxes)
 [Day 11 - Custom HTML5 Video Player](#day-11---custom-html5-video-player)
+[Day 12 - Key Sequence Detection (KONAMI CODE)](#day-12---key-sequence-detection-(KONAMI-CODE))
+[Day 13 - Slide in on Scroll](#day-13---slide-in-on-scroll)
+
 
 
 ## Deployment
@@ -362,7 +365,13 @@ App displays unicorns and rainbows when secretCode is input using https://www.co
 
 ![](https://imgur.com/9tbOAVW.jpeg)
 
-- Helped undeerstand negative splice arguments in array methods.
+- Helped understand negative splice arguments in array methods.
 
 ---
 
+## Day 13 - Slide in on Scroll
+
+## Day 14 - JS Reference VS Copy
+
+- Difference between reference and copy especially useful when it comes to nested data
+- Object.assign()
