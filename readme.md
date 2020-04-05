@@ -371,7 +371,14 @@ App displays unicorns and rainbows when secretCode is input using https://www.co
 
 ## Day 13 - Slide in on Scroll
 
+
+
 ## Day 14 - JS Reference VS Copy
 
-- Difference between reference and copy especially useful when it comes to nested data
-- Object.assign()
+Focus on the difference between reference and copy with primitive tyoes, arrays and objects. These are especially important when it comes to nested data.
+
+![](https://imgur.com/UnPW0z0.jpeg)
+
+- Refreshed: `slice()`, `concat()`, spread operator and `Array.from()`.
+- New : `Object.assign()` and using deep cloning to access anything deeper than one level. https://lodash.com/docs/#cloneDeep
+- Spend some time looking at https://lodash.com/ 
