@@ -371,7 +371,16 @@ App displays unicorns and rainbows when secretCode is input using https://www.co
 
 ## Day 13 - Slide in on Scroll
 
+Animating images to slide into an app when you scroll the page.
 
+![](https://imgur.com/9kf54Rb.jpeg)
+
+Key learnings:
+- **Debounce** functions to aid performance. Can find in Lodash JS library.
+- Window methods `scrollY` and `innerHeight` and formatting using `offsetTop`.
+- I initially confused changing the positioning of image, with the timing of the image sliding in but resolved this quickly using the Chrome Dev Tools.
+
+---
 
 ## Day 14 - JS Reference VS Copy
 
@@ -380,5 +389,7 @@ Focus on the difference between reference and copy with primitive tyoes, arrays 
 ![](https://imgur.com/UnPW0z0.jpeg)
 
 - Refreshed: `slice()`, `concat()`, spread operator and `Array.from()`.
-- New : `Object.assign()` and using deep cloning to access anything deeper than one level. https://lodash.com/docs/#cloneDeep
-- Spend some time looking at https://lodash.com/ 
+- New: `Object.assign()` and using deep cloning to access anything deeper than one level. https://lodash.com/docs/#cloneDeep
+- Spend some time looking at Lodash library.
+
+---

@@ -14,9 +14,7 @@
     <p>Lorem ipsum cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
     <p>Adipisicing elit. Tempore tempora rerum..</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
-
+    
     <img src="http://unsplash.it/400/400" class="align-left slide-in">
 
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, deserunt facilis et iste corrupti omnis tenetur est. Iste ut est dicta dolor itaque adipisci, dolorum minima, veritatis earum provident error molestias. Ratione magni illo sint vel velit ut excepturi consectetur suscipit, earum modi accusamus voluptatem nostrum, praesentium numquam, reiciendis voluptas sit id quisquam. Consequatur in quis reprehenderit modi perspiciatis necessitatibus saepe, quidem, suscipit iure natus dignissimos ipsam, eligendi deleniti accusantium, rerum quibusdam fugit perferendis et optio recusandae sed ratione. Culpa, dolorum reprehenderit harum ab voluptas fuga, nisi eligendi natus maiores illum quas quos et aperiam aut doloremque optio maxime fugiat doloribus. Eum dolorum expedita quam, nesciunt</p>
@@ -43,6 +41,8 @@
   </div>
 
   <script>
+    // LIMITS NUMBER OF TIMES RUNS PER SECOND TO ALLEVIATE PERFOMANCE ISSUEES (Can find a version in Lodash)
+    // Only runs the checkSlide once every 20 milliseconds (Generally use 20 or 100)
     function debounce(func, wait = 20, immediate = true) {
       var timeout;
       return function() {
@@ -57,6 +57,36 @@
         if (callNow) func.apply(context, args);
       };
     }
+
+    const sliderImages = document.querySelectorAll('.slide-in')
+
+    function checkSlide(e) {
+      // console.log(e)
+      // console.count(e)//count the number of times the event is running
+      // If too many - use debounce function above to limit the number of times it runs per sec
+      sliderImages.forEach(slideImage => {
+        // SHOW WHEN YOU CAN SEE HALF WAY THROUGH IMAGE
+        // console.log(window.scrollY) // shows how far you are scrolled from the top of the browser
+        const slideInAt = (window.scrollY + window.innerHeight) - //distance to bottom of browser
+          slideImage.height / 2 //pixel level viewed when image should be added, NOT changing location for image to be displayed.
+        // BOTTOM OF IMAGE
+        //how far top of object is from top of page + height = bottom of image to top of page
+        const imageBottom = slideImage.offsetTop + slideImage.height
+        // CHECKS IMAGE SLIDES IN BELOW TOP OF IMAGE (shoud be mid-point)
+        const isHalfShown = slideInAt > slideImage.offsetTop
+        // CHECKS SCROLLED PAST BOTTOM OF IMAGE
+        const isNotScrolledPast = window.scrollY < imageBottom
+
+        if (isHalfShown && isNotScrolledPast) {
+          slideImage.classList.add('active')
+        } else {
+          slideImage.classList.remove('active')
+        }
+      }) 
+    }
+
+    window.addEventListener('scroll', debounce(checkSlide)) // When window is scrolled-debounced checkSlide()
+    // window.addEventListener('scroll', debounce(checkSlide, 500)) // 500 checks once every 0.5secs
 
   </script>
 
