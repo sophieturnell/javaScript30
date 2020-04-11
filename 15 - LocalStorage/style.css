@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  background: url('http://wes.io/hx9M/oh-la-la.jpg') center no-repeat;
+  background: url('https://imgur.com/hAuIuo7.jpeg') center no-repeat;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -12,6 +12,10 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit; 
+}
+
+h1 {
+  color: white;
 }
 
 svg {
@@ -55,15 +59,16 @@ h2 {
   cursor: pointer;
 }
 
+/* HIDES TICKBOX */
 .plates input {
   display: none;
 }
-
+/* SHOW BLANK SQUARE BEFORE */
 .plates input + label:before {
   content: '⬜️';
   margin-right: 10px;
 }
-
+/* WHEN CHECKED SHOW A TACO EMOJI */
 .plates input:checked + label:before {
   content: '🌮';
 }

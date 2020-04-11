@@ -379,10 +379,11 @@ Key learnings:
 - **Debounce** functions to aid performance. Can find in Lodash JS library.
 - Window methods `scrollY` and `innerHeight` and formatting using `offsetTop`.
 - I initially confused changing the positioning of image, with the timing of the image sliding in but resolved this quickly using the Chrome Dev Tools.
+- Revised `classList.add` and `classList.remove`.
 
 ---
 
-## Day 14 - JS Reference VS Copy
+## Day 14 - Object & Arrays - JS Reference VS Copy
 
 Focus on the difference between reference and copy with primitive tyoes, arrays and objects. These are especially important when it comes to nested data.
 
@@ -393,3 +394,33 @@ Focus on the difference between reference and copy with primitive tyoes, arrays 
 - Spend some time looking at Lodash library.
 
 ---
+
+## Day 15 - Local Storage & Event Delegation
+
+**Persisting state with local storage** and **Event Delegation** (adding an event listener on something that doesn't exist).
+
+![](https://imgur.com/DjaVKY3.jpeg)
+
+Key Learnings:
+- Listen for `submit` event when a button is clicked or enter pressed rather than a `click` event.
+- Use settings cog symbol in the console to select "preserve log". This shows logs previous to refreshing the page.
+- Shows "Navigated to:" which shows our page is refereshing. Use `e.preventDefault` to stop reloading. By default submitting form sends the data to an external source (server side) and reloads but here we do all work on the client side (locally).
+- `data-index`, `id` and `for` link the items.
+- Can't write `checked=false` as any existence of the attribute "checked" will make it display as checked.
+- CSS lines 58 to 70 add emoji to checkboxes when selected.
+
+**Local Storage**
+- Object in browser called `localStorage` able to save text to the browser. Dev Tools > Application > Local Storage > file://
+- localStorage methods for making data persistent when refreshing the browser: 
+    `localStorage.getItem(key)`
+    `localStorage.setItem(key, value)`
+    `localStorage.removeItem(key)`
+- Can only save strings to local storage. Use `JSON.stringify()` to convert value to a string (may look like an array in Application, but actually a string).
+- On page load, convert string back to array of objects using `JSON.parse()`.
+
+**Event Delegation**
+-  When an event happens on the "responsible" parent, this is passed on to the children (which may or may not exist yet).
+- `e.target` revision
+
+---
+
