@@ -424,3 +424,21 @@ Key Learnings:
 
 ---
 
+## CSS Text Shadow Mouse Move Effect
+
+Using offset to help find the cursor and move the shadows depending on the location.
+
+![](https://imgur.com/lcSbzlf.jpeg)
+
+- `contenteditable` Allows content to be edited. If not used as an attribute, content will be inherited from the parent. https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content
+- Deconstructing:
+```javascript
+    const width = hero.offsetWidth
+    const height = hero.offsetHeight
+    const { offsetWidth: width, offsetHeight: height } = hero // Above 2 lines in 1 
+```
+- Revision of `offsetWidth`, `offsetHeight`, `offsetX`, `offsetY`
+- **textShadow** `object.style.textShadow = "none|h-shadow v-shadow blur color|initial|inherit"` https://www.w3schools.com/jsref/prop_style_textshadow.asp
+
+---
+
