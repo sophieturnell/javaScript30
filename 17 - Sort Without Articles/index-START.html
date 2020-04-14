@@ -15,40 +15,72 @@
       display: flex;
       align-items: center;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: dimgray;
+      margin: auto;
     }
 
     #bands {
       list-style: inside square;
-      font-size: 20px;
+      font-size: 15px;
       background: white;
       width: 500px;
       margin: auto;
       padding: 0;
       box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+      /* display: flex; */
+      
     }
     
     #bands li {
       border-bottom: 1px solid #efefef;
-      padding: 20px;
+      padding: 15px;
     }
     
     #bands li:last-child {
       border-bottom: 0;
     }
 
-    a {
-      color: #ffc600;
-      text-decoration: none;
-    }
-
   </style>
-
+  <h1>Sorting Band Names without Articles in Vanilla JavaScript</h1>
   <ul id="bands"></ul>
 
 <script>
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
+// REMOVE "A", "THE" & "AN" FROM BANDS
+function strip(bandName){
+  return bandName.replace(/^(a |the |an )/i, "").trim() //include space after search words
+}
 
+// SORT ARRAY ALPHABETICALLY
+  // ONLY USE strip() IN IF STATEMENT ONLY, ORIGINAL LIST ISN'T MODIFIED
+const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1)
+// OTHER OPTIONS
+// const sortedBands = bands.sort(function (a, b) {
+//   return strip(a) > strip(b) ? 1 : -1
+// })
+// OPTION
+  // const sortedBands = bands.sort(function (a, b) {
+  //   if (strip(a) > strip(b)){
+  //     return 1
+  //   } else {
+  //     return -1
+  //   }
+  // })
+console.log(sortedBands)
+
+// ADD TO HTML (INCLUDING UNSORTED WORDS)
+document.querySelector('#bands').innerHTML = 
+  sortedBands
+    .map(band => `<li>${band}</li>`)
+    .join("") // removes commas
+
+ 
 </script>
 
 </body>

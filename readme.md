@@ -424,7 +424,7 @@ Key Learnings:
 
 ---
 
-## CSS Text Shadow Mouse Move Effect
+## Day 16 - CSS Text Shadow Mouse Move Effect
 
 Using offset to help find the cursor and move the shadows depending on the location.
 
@@ -442,3 +442,12 @@ Using offset to help find the cursor and move the shadows depending on the locat
 
 ---
 
+## Day 17 - Day 17- Sorting Band Names without Articles
+
+Sorts an array of bands alphabetically, ignoring "The", "A" or "An" at the start.
+
+![](https://imgur.com/xaZDy1u.jpeg)
+
+- Practice using `sort()`, `replace()`, `trim()` removes whitespace either side of a string.
+- I'm quite new to Regular Expressions but these look really useful, try to work with these more. `^` - starts with, `|` or, `i` insensitive (upper or lower case).
+- Mapping an array to create a list of strings.
