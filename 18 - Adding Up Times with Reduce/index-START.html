@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Videos</title>
 </head>
+
 <body>
   <ul class="videos">
     <li data-time="5:43">
@@ -181,7 +182,45 @@
       Video 58
     </li>
   </ul>
+
 <script>
+// PULL TIMES OUT OF DOM
+// const timesArr = [...document.querySelectorAll('[data-time]')]
+const timesArr = Array.from(document.querySelectorAll('[data-time]'))
+console.log(timesArr)
+
+// CONVERT THEM TO NUMBERS, MINS & SECS
+const seconds = timesArr
+  .map(times => times.dataset.time)
+  .map(timeCode => {
+    // DECONSTRUCT, SPLIT MINS FROM SECS & CONVERT TO NUMBERS
+    const [mins, secs] = timeCode.split(":").map(parseFloat)
+    console.log({ secs })
+    console.log({ mins })
+    // ADD MINS & SECONDS
+      return (mins * 60) + secs
+  })
+//console.log(secs) // not defined outside the brackets
+console.log({seconds})
+
+// ADD ALL SECONDS IN ARRAY
+const totalSeconds = seconds.reduce((acc, cur) => {
+  return acc + cur
+}, 0)
+console.log({totalSeconds})
+
+// CONVERT TO HOURS, MINS, SECS
+let secondsLeft = totalSeconds
+const hours = Math.floor(totalSeconds/3600)
+console.log({hours})
+secondsLeft = secondsLeft % 3600 // to get the remainder seconds after hour calculated
+console.log({secondsLeft})
+const minutes = Math.floor(secondsLeft/60)
+secondsLeft = secondsLeft % 60
+console.log({minutes})
+
+console.log(`Total time of video: ${hours} hours, ${minutes} minutes, ${secondsLeft} seconds.`)
+
 </script>
 </body>
 </html>

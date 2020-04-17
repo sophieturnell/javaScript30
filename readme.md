@@ -15,8 +15,14 @@ A 30 day JavaScript challenge with no jQuery, no pre-processors and no framework
 [Day 9 - 14 Must Know Dev Tools Tricks](#day-9---14-must-know-dev-tools-tricks)
 [Day 10 - Hold Shift to Check Multiple Checkboxes](#day-10---hold-shift-to-check-multiple-checkboxes)
 [Day 11 - Custom HTML5 Video Player](#day-11---custom-html5-video-player)
-[Day 12 - Key Sequence Detection (KONAMI CODE)](#day-12---key-sequence-detection-(KONAMI-CODE))
+[Day 12 - Key Sequence Detection (KONAMI CODE)](#day-12---key-sequence-detection---KONAMI-CODE)
 [Day 13 - Slide in on Scroll](#day-13---slide-in-on-scroll)
+[Day 14 - Object & Arrays - JS Reference VS Copy](#day-14---object-&-arrays---JS-reference-vs-copy)
+[Day 15 - Local Storage & Event Delegation](#-day-15---local-storage-&-event-delegation)
+[Day 16 - CSS Text Shadow Mouse Move Effect](#-day-16---CSS-text-shadow-mouse-move-effect)
+[Day 17 - Sorting Band Names without Articles](#-day-17---sorting-band-names-without-articles)
+[Day 18 - Tally String Times with Reduce](#-day-18---tally-string-times-with-reduce)
+[Day 19 - Unreal Webcam Fun](#-day-19---unreal-webcam-fun)
 
 
 
@@ -357,7 +363,7 @@ progress.addEventListener('mouseup', () => mousedown = false)
 
 ---
 
-## Day 12 - Key Sequence Detection (KONAMI CODE)
+## Day 12 - Key Sequence Detection - KONAMI CODE
 
 The secret handshake of the internet!
 https://www.howtogeek.com/659611/what-is-the-konami-code-and-how-do-you-use-it/
@@ -442,12 +448,39 @@ Using offset to help find the cursor and move the shadows depending on the locat
 
 ---
 
-## Day 17 - Day 17- Sorting Band Names without Articles
+## Day 17 - Sorting Band Names without Articles
 
 Sorts an array of bands alphabetically, ignoring "The", "A" or "An" at the start.
 
 ![](https://imgur.com/xaZDy1u.jpeg)
 
 - Practice using `sort()`, `replace()`, `trim()` removes whitespace either side of a string.
-- I'm quite new to Regular Expressions but these look really useful, try to work with these more. `^` - starts with, `|` or, `i` insensitive (upper or lower case).
+- I'm quite new to Regular Expressions but these look really useful, try to work with these more. `^` - starts with, `|` or, `i` insensitive (upper or lower case). Stripping a word of "a ", "the " and "an " below.
+```javascript
+function strip(bandName) {
+        return bandName.replace(/^(a |the |an )/i, '').trim()
+    }
+```
 - Mapping an array to create a list of strings.
+
+```javascript
+const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1)
+
+document.querySelector('#bands').innerHTML = sortedBands.map(band => `<li>${band}</li>`).join('')
+```
+
+## Day 18 - Tally String Times with Reduce
+
+Calculating the aggregate time needed for all videos to play.
+
+![](https://imgur.com/3azGN3I.jpeg)
+
+- Remember `data-time` is an attribute so selected like this `[data-time]`.
+- **ES6 destructuring** - this wasn't showing in my browser so spent a long time thinking about this, trying to work out why this wouldn't work in Chrome and  how to access the values without using the destructor etc. In the end I realised my `console.log` was in the wrong place. It should have been inside the brackets.
+- Good practise converting dataTypes, accessing nested values using `map` and `reduce`.
+
+---
+
+## Day 19 - Unreal Webcam Fun
+
+
