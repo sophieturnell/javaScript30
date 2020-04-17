@@ -483,4 +483,22 @@ Calculating the aggregate time needed for all videos to play.
 
 ## Day 19 - Unreal Webcam Fun
 
+![](https://imgur.com/GEzyq5p.jpeg)
 
+## Deployment
+- Requires a secure origin to access camera (https or local host). Run server using Node: `npm install`, `npm start`.
+- `"browser-sync": "^2.12.5 <2.23.2"` - allows you to open website and start a server with live reloading. Local server = 3001
+
+- New learnings `srcObject`,`ctx.drawImage()`, `ctx.getImageData()`, `ctx.putImageData()`, `toDataURL`, `insertBefore()`
+- Revision of promises, `createElement()`, `setAttribute()`, `innerHTML` vs. `textContent` and `forEach()`
+
+- First time accessing the camera. Used `navigator.mediaDevices.getUserMedia({ video: true, audio: false })`to return the promise.
+- `canplay` fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
+- Base64 - text representation containing all the attributes of an image.
+- `debugger` is a keyword stops the execution of JavaScript, and calls (if available) the debugging function. This has the same function as setting a breakpoint in the debugger. Used here to pause the code so we can dig into the pixel ImageData in the console. `ImageData.data` is contains arrays of rgba colour codes: 
+0: 135 - red
+1: 124 - green
+2: 111 - blue
+3: 255 - alpha
+4: 112 - red...
+For every pixel in image, there are 4 elements in the array.
