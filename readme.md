@@ -502,3 +502,18 @@ Calculating the aggregate time needed for all videos to play.
 3: 255 - alpha
 4: 112 - red...
 For every pixel in image, there are 4 elements in the array.
+
+## Day 20 - Native Speech Recognition
+
+![](https://imgur.com/VY4CDKV.jpeg)
+
+## Deployment
+- Requires a secure origin to access camera (https or local host). Run server using Node: `npm install`, `npm start`. Then click the "index-START" file in the browser. Make sure other tabs using the microphone are closed if not working.
+
+- `SpeechRecognition` is a global variable that lives in the browser on top of the window.
+https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
+- `interimResults`
+- event data contains transcript and confidence rating as %.
+- Good practise retrieving nested data.
+- Event listeners `result`, `end`
+- `e.results[0].isFinal`

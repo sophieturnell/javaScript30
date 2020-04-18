@@ -5,13 +5,55 @@
   <title>Speech Detection</title>
 </head>
 <body>
-
+  <h1>Native Speech Recognition Using Vanilla JavaScript</h1>
   <div class="words" contenteditable>
   </div>
 
 <script>
+  // SET IT TO WORK IN DIFFERENT BROWSERS
   window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
+  const recognition = new SpeechRecognition()
+  // VIEW WHAT YOU ARE SAYING AS YOU ARE SPEAKING
+  recognition.interimResults = true
+
+  // CREATE A PARAGRAPH
+  let p = document.createElement('p')
+  const words = document.querySelector('.words')
+  words.appendChild(p) // add para to div with class of table
+
+  // LISTEN FOR RESULT EVENT - will stop if paused
+  recognition.addEventListener('result', e => { //when result comes back returns an event(e)
+    //console.log({e}) //returns a list of nested data - shows confidence rating as %
+    const myTranscript = Array.from(e.results)
+      .map(result => result[0])
+      .map(result => result.transcript) // map twice to find nested data
+      .join('') //connects if more than 1 string
+
+      p.textContent = myTranscript //adds text to p box
+      // IF RESULT IS FINAL CREATE NEW PARAGRAPH
+      if (e.results[0].isFinal) {
+        p = document.createElement('p') //overwrites existing use of p on line 21
+        words.appendChild(p)
+      }
+
+    //   // CHECK IF INCLUDES CERTAIN TERMS ETC.
+      if (myTranscript.includes('dance')) { //word "dance" will not print
+        console.log('💃')
+      }
+    //   // SIRI STYLE!
+    //   if (myTranscript.includes('get the weather')) {
+    //   console.log('could add function to get the weather')
+    // }
+
+
+    console.log({myTranscript})
+  })
+
+  // START A NEW PARA WHEN PAUSE SPEAKING (event is ended)
+  recognition.addEventListener('end', recognition.start) // starts again
+
+  recognition.start() // not on page load, as ask users permission to use mic. 
 
 </script>
 
