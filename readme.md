@@ -505,15 +505,18 @@ For every pixel in image, there are 4 elements in the array.
 
 ## Day 20 - Native Speech Recognition
 
+- Creating list using the microphone only. Siri style!
+
 ![](https://imgur.com/VY4CDKV.jpeg)
 
 ## Deployment
 - Requires a secure origin to access camera (https or local host). Run server using Node: `npm install`, `npm start`. Then click the "index-START" file in the browser. Make sure other tabs using the microphone are closed if not working.
 
+First time using speech recognition and some good practise retrieving nested data. https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
+
+New learnings:
 - `SpeechRecognition` is a global variable that lives in the browser on top of the window.
-https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
 - `interimResults`
-- event data contains transcript and confidence rating as %.
-- Good practise retrieving nested data.
-- Event listeners `result`, `end`
-- `e.results[0].isFinal`
+- Event data contains transcript and confidence rating as %.
+- Event listeners `result` and `end`.
+- `e.results[0].isFinal` checks if it is the last one.
