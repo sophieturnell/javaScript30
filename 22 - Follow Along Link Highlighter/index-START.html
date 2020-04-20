@@ -12,7 +12,7 @@
         <li><a href="">Home</a></li>
         <li><a href="">Order Status</a></li>
         <li><a href="">Tweets</a></li>
-        <li><a href="">Read Our History</a></li>
+        <li><a href="">Read Our <br/>History</a></li>
         <li><a href="">Contact Us</a></li>
       </ul>
     </nav>
@@ -26,7 +26,35 @@
     </div>
 
   <script>
-    // 👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀
+
+    // SELECT ALL LINKS
+    const triggers = document.querySelectorAll('a')
+    // MAKE A SPAN WITH CLASS HIGHLIGHT & APPEND TO BODY
+    const highlight = document.createElement('span')
+    highlight.classList.add('highlight')
+    document.body.append(highlight)
+
+    function hightlightLink() {
+      console.log('highlight!!')
+      console.log(this) // will show the target link
+      const linkCoords = this.getBoundingClientRect() // LOCATES TARGET ON THE PAGE
+      console.log(linkCoords)
+      const coords = { //OUR CO-ORDINATES OBJECT ON THE PAGE (INCLUDE HOW FAR WE HAVE SCROLLED)
+        width: linkCoords.width,
+        height: linkCoords.height,
+        top: linkCoords.top + window.scrollY, // takes in to account the distace scrolled
+        left: linkCoords.left + window.scrollX,
+      }
+      highlight.style.width = `${coords.width}px`
+      highlight.style.height = `${coords.height}px`
+      highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`
+    }
+
+    triggers.forEach(a => a.addEventListener('mouseenter', hightlightLink))
+
+
+
+
   </script>
 </body>
 </html>

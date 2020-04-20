@@ -23,6 +23,11 @@ A 30 day JavaScript challenge with no jQuery, no pre-processors and no framework
 [Day 17 - Sorting Band Names without Articles](#-day-17---sorting-band-names-without-articles)
 [Day 18 - Tally String Times with Reduce](#-day-18---tally-string-times-with-reduce)
 [Day 19 - Unreal Webcam Fun](#-day-19---unreal-webcam-fun)
+[Day 20 - Native Speech Recognition](#-day-20---native-speech-recognition)
+[Day 21 - Geolocation based Speedometer and Compass](#-day-21---geolocation-based-speedometer-and-compass)
+[Day 22 - Follow Along Link Highlighter](#-day-22---follow-along-link-highlighter)
+
+
 
 
 
@@ -510,13 +515,47 @@ For every pixel in image, there are 4 elements in the array.
 ![](https://imgur.com/VY4CDKV.jpeg)
 
 ## Deployment
-- Requires a secure origin to access camera (https or local host). Run server using Node: `npm install`, `npm start`. Then click the "index-START" file in the browser. Make sure other tabs using the microphone are closed if not working.
+- Requires a secure origin to access microphone (https or local host). Run server using Node: `npm install`, `npm start`. Then click the "index-START" file in the browser. Make sure other tabs using the microphone are closed if not working.
 
-First time using speech recognition and some good practise retrieving nested data. https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
+First time using speech recognition and some good practise retrieving nested data. 
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API
+https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
 
 New learnings:
 - `SpeechRecognition` is a global variable that lives in the browser on top of the window.
 - `interimResults`
 - Event data contains transcript and confidence rating as %.
 - Event listeners `result` and `end`.
-- `e.results[0].isFinal` checks if it is the last one.
+- `e.results[0].isFinal` boolean which tells you if the user stopped talking to start in a new paragraph.
+
+---
+
+## Day 21 - Geolocation based Speedometer and Compass
+
+- Uses co-ordinates, heading and speed.
+- Heading is like a compass - how many degrees north you are pointing.
+- Can fake co-ordinates but not heading or speed.
+
+- Use iOS simulator in xcode - unknown error occurred. 
+COME BACK TO THIS WHEN FIXED.
+
+---
+
+## Day 22 - Follow Along Link Highlighter
+
+Create a span that highlights links on a page.
+
+![](https://imgur.com/4qwNDu9.jpeg)
+
+New Learnings:
+- Differences between `mouseover`, `mouseenter` and `onmousemove`:
+  - The `mouseover` event triggers when the mouse pointer enters the div element, and its child elements.
+  - The `mouseenter` event is only triggered when the mouse pointer enters the div element.
+  - The `onmousemove` event triggers every time the mouse pointer is moved over the div element.
+
+- `getBoundingClientRect()` method returns the size of an element and its position relative to the viewport.
+The element's size is equal to its width/height + padding in the case that the standard box model is being used, or width/height only if `box-sizing: border-box` has been set on it. https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+
+---
+
+

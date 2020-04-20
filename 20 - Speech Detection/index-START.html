@@ -13,6 +13,7 @@
   // SET IT TO WORK IN DIFFERENT BROWSERS
   window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
+  // CREATE NEW SPEECH RECOGNITION OBJECT
   const recognition = new SpeechRecognition()
   // VIEW WHAT YOU ARE SAYING AS YOU ARE SPEAKING
   recognition.interimResults = true
@@ -45,7 +46,6 @@
     //   if (myTranscript.includes('get the weather')) {
     //   console.log('could add function to get the weather')
     // }
-
 
     console.log({myTranscript})
   })
