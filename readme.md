@@ -543,7 +543,7 @@ COME BACK TO THIS WHEN FIXED.
 
 ## Day 22 - Follow Along Link Highlighter
 
-Create a span that highlights links on a page.
+Build a link higlighter which will transtition from one link to another with a smooth effect by adding a class to the link. Part 1 of building a replica of the navigation bar from Stripe.
 
 ![](https://imgur.com/4qwNDu9.jpeg)
 
@@ -558,4 +558,18 @@ The element's size is equal to its width/height + padding in the case that the s
 
 ---
 
+## Day 23 - Speeech Synthesis
+
+- `SpeechSynthesisUtterance()` used when one person speaking. https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance
+-  speechSynthesis is a global variable that can be used to retrieve information about the synthesis voices, start, pause speech etc. e.g. `speechSynthesis.speak(msg)` which plays the msg. https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+- Event listener `voiceschanged`
+- `speechSynthesis.getVoices()` returns Mac's inbuilt array of different voices.
+- Emojis spoken in native language, text in English.
+- Passing and argument to a function through an event listener.
+Both create another function:
+
+```javascript
+  stopButton.addEventListener('click', () => toggle(false))
+  stopButton.addEventListener('click', toggle.bind(null, false))
+```
 
