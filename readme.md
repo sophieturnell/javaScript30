@@ -560,6 +560,8 @@ The element's size is equal to its width/height + padding in the case that the s
 
 ## Day 23 - Speeech Synthesis
 
+![](https://imgur.com/eLNIdck.jpeg)
+
 - `SpeechSynthesisUtterance()` used when one person speaking. https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance
 -  speechSynthesis is a global variable that can be used to retrieve information about the synthesis voices, start, pause speech etc. e.g. `speechSynthesis.speak(msg)` which plays the msg. https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
 - Event listener `voiceschanged`
