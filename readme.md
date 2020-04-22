@@ -26,6 +26,7 @@ A 30 day JavaScript challenge with no jQuery, no pre-processors and no framework
 [Day 20 - Native Speech Recognition](#-day-20---native-speech-recognition)
 [Day 21 - Geolocation based Speedometer and Compass](#-day-21---geolocation-based-speedometer-and-compass)
 [Day 22 - Follow Along Link Highlighter](#-day-22---follow-along-link-highlighter)
+[Day 23 - Speech Synthesis](#-day-23---speech-synthesis)
 
 
 
@@ -558,7 +559,9 @@ The element's size is equal to its width/height + padding in the case that the s
 
 ---
 
-## Day 23 - Speeech Synthesis
+## Day 23 - Speech Synthesis
+
+Playing typed text.
 
 ![](https://imgur.com/eLNIdck.jpeg)
 
@@ -575,3 +578,14 @@ Both create another function:
   stopButton.addEventListener('click', toggle.bind(null, false))
 ```
 
+## Day 24- Sticky Nav
+
+Fixing a navigation bar to the top of the scrolled screen. Shows logo and body grows when nav at top of page. Useful for slideovers.
+
+![](https://imgur.com/reUwL0X.jpeg)
+
+- Revision of `offsetTop`, `offsetHeight`, `window.scrollY`, `classList`,
+- Add classlist to the body to make it more accessible.
+- WHen you make an element fixed - it no longer takes up space in the document so content jumps up the page. Add pixels to the body to solve.
+- Cannot animate from 0 to auto. Use max width here for the logo.
+- Practice using classes to make transitions in CSS. 
