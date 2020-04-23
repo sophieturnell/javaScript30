@@ -27,6 +27,7 @@ A 30 day JavaScript challenge with no jQuery, no pre-processors and no framework
 [Day 21 - Geolocation based Speedometer and Compass](#-day-21---geolocation-based-speedometer-and-compass)
 [Day 22 - Follow Along Link Highlighter](#-day-22---follow-along-link-highlighter)
 [Day 23 - Speech Synthesis](#-day-23---speech-synthesis)
+[Day 24 - Sticky Nav](#-day-24---sticky-nav)
 
 
 
@@ -578,7 +579,7 @@ Both create another function:
   stopButton.addEventListener('click', toggle.bind(null, false))
 ```
 
-## Day 24- Sticky Nav
+## Day 24 - Sticky Nav
 
 Fixing a navigation bar to the top of the scrolled screen. Shows logo and body grows when nav at top of page. Useful for slideovers.
 
@@ -589,3 +590,30 @@ Fixing a navigation bar to the top of the scrolled screen. Shows logo and body g
 - WHen you make an element fixed - it no longer takes up space in the document so content jumps up the page. Add pixels to the body to solve.
 - Cannot animate from 0 to auto. Use max width here for the logo.
 - Practice using classes to make transitions in CSS. 
+
+---
+
+## Day 25 - Event Capture, Propagation, Bubbling & Once
+
+Event bubbling and capturing are two ways of event propagation in the HTML DOM API.
+
+When an event is fired on an element that has parent elements, modern browsers run these two different phases — the **capturing** phase and the **bubbling** phase.
+
+![](https://imgur.com/4JJzjWg.jpeg)
+
+- **Bubbilng** - When an event happens on an element, it first runs the handlers on the element, then on its parent, then all the way up on other ancestors. The process is called “bubbling”, because events “bubble” from the inner element up through parents like a bubble in the water. Bubbling is the default.
+
+- **event.target** - The most deeply nested element that caused the event is called a target element, accessible as event.target.
+
+- **Capture** - the event is first captured by the outermost element and propagated to the inner elements, from the top down, (ancestors to child).
+- **Bubbles** - the event is first captured and handled by the innermost element and then propagated to outer elements, from the bottom up (child to ancestors).
+
+- `{capture: true}` below - runs the funtion on the way down, rather than on the way back up. By deefaul this is false.
+
+```javascript
+divs.forEach(div => div.addEventListener('click', logText, {capture: true}))
+```
+
+- **Stop Propagation** - Stops bubbling up (I clicked the exact element I required)
+- **Once** - `{once: true}` - listens for a click and then unbinds itself, so will only run once. Useful in shop checkouts where you only want data to be submitted once. (same as `removeEventListener`).
+
