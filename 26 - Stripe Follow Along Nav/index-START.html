@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Follow Along Nav</title>
+  <title>Stipe Follow Along Nav Dropdown</title>
 </head>
+
 <body>
-  <h2>Cool</h2>
+  <h1>Vanilla JavaScript Dropdown Navigation Bars</h1>
   <nav class="top">
+    <!-- 1 WHITE DIV THAT FOLLOWS DROPDOWN AROUND-->
     <div class="dropdownBackground">
       <span class="arrow"></span>
     </div>
@@ -21,6 +23,7 @@
           </div>
         </div>
       </li>
+
       <li>
         <a href="#">Courses</a>
         <ul class="dropdown courses">
@@ -62,6 +65,7 @@
           </li>
         </ul>
       </li>
+
       <li>
         <a href="#">Other Links</a>
         <ul class="dropdown dropdown3">
@@ -71,6 +75,7 @@
           <li><a class="button" href="http://wesbos.com/courses">Course Catalog</a></li>
         </ul>
       </li>
+
     </ul>
   </nav>
 
@@ -94,9 +99,11 @@
       linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
   }
 
-  h2 {
+  h1 {
     margin-top: 0;
     padding-top: .8em;
+    padding-left: 1em;
+    color: white;
   }
 
   nav {
@@ -220,6 +227,45 @@
 </style>
 
 <script>
+  const triggers = document.querySelectorAll('.cool > li ')
+  const background = document.querySelector('.dropdownBackground')
+  const nav = document.querySelector('.top')
+
+  function handleEnter() {
+    console.log('entering')
+    // SHOWING BOX CONTENT
+    this.classList.add('trigger-enter') // display content
+    setTimeout(() => this.classList.contains('trigger-enter') // && will never run unless first part is true
+      && this.classList.add('trigger-enter-active'),150) // delayed opacity shows
+      //Solves the prob where already hoverring off before setTimeout has finished running (shows delayed content)
+    // SHOWING WHITE BOX BACKGROUND
+    background.classList.add('open')
+    // FIND DROPDOWN INSIDE OF THE ELEMENT HOVERED - happens here once box has been selected
+    const dropdown = this.querySelector('.dropdown') //find selected dropdown
+    const dropdownCoords = dropdown.getBoundingClientRect() //find absolute location
+    const navCoords = nav.getBoundingClientRect()
+    const coords = {
+      height: dropdownCoords.height,
+      width: dropdownCoords.width,
+      top: dropdownCoords.top - navCoords.top, //to take into account the scroll
+      left: dropdownCoords.left - navCoords.left
+    }
+    // ADD PROPERTIES TO WHITE BACKGROUND
+    background.style.setProperty('height', `${coords.height}px`)
+    background.style.setProperty('width', `${coords.width}px`)
+    background.style.setProperty('top', `${coords.top}px`)
+    background.style.setProperty('left', `${coords.left}px`)
+  }
+
+  function handleLeave() {
+    console.log('leaving')
+    this.classList.remove('trigger-enter', 'trigger-enter-active')
+    background.classList.remove('open')
+  }
+
+  triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter))
+  triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave))
+
 </script>
 
 </body>

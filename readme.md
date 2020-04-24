@@ -543,7 +543,7 @@ COME BACK TO THIS WHEN FIXED.
 
 ---
 
-## Day 22 - Follow Along Link Highlighter
+## Day 22 - Follow Along Link Highlighter - Stripe Part 1
 
 Build a link higlighter which will transtition from one link to another with a smooth effect by adding a class to the link. Part 1 of building a replica of the navigation bar from Stripe.
 
@@ -617,3 +617,14 @@ divs.forEach(div => div.addEventListener('click', logText, {capture: true}))
 - **Stop Propagation** - Stops bubbling up (I clicked the exact element I required)
 - **Once** - `{once: true}` - listens for a click and then unbinds itself, so will only run once. Useful in shop checkouts where you only want data to be submitted once. (same as `removeEventListener`).
 
+---
+
+## Day 26 - Stripe Follow Along Dropdown - Stripe Part 2
+
+Transforming one dropdown box in the navigation bar to be used for all nav dropdowns. This time the background element is a child of the navigation element rather than the body (in day 24) which affects the way we calculate the coordinates of the background.
+
+![](https://imgur.com/Wf1LMYs.jpeg)
+
+- Hover parent `<li>`
+- `.cool > li` all direct <li> descendents of cool class.
+- When entering into a **named functions** the value of `this` changes, when entering into an **arrow function** this is inherited from the parents.
