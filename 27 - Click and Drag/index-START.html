@@ -5,7 +5,9 @@
   <title>Click and Drag</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <h1>Vanilla JavaScript - Click and Drag to Scroll</h1>
   <div class="items">
     <div class="item item1">01</div>
     <div class="item item2">02</div>
@@ -35,6 +37,43 @@
   </div>
 
 <script>
+  const slider = document.querySelector('.items')
+  let isDown = false // if clicking or not
+  let startX
+  let scrollLeft
+
+  function handleClick(e) {
+    isDown = true
+    slider.classList.add('active') // cursor switches to "grabbing" and items enlarge
+    // FIND LOCATION OF CLICK
+    startX = e.pageX - slider.offsetLeft // accounts for margin
+    scrollLeft = slider.scrollLeft
+  }
+
+  function handleExit() {
+    isDown = false
+    slider.classList.remove('active')
+  }
+
+  function handleUnclick() {
+    isDown = false
+    slider.classList.remove('active')
+  }
+
+  function handleMoving(e) {
+    if (!isDown) return // stops running if nothing has been clicked
+    e.preventDefault() ///stops browser confusion over what you are selecting
+    // FIND END LOCATION
+    const x = e.pageX - slider.offsetLeft
+    // const walk = x - startX // how far horizontally travelled
+    const walk = (x - startX) * 3 // for every 1 pixel moved, scroll 3x that
+    slider.scrollLeft = scrollLeft - walk //stops jumping
+  }
+
+  slider.addEventListener('mousedown', handleClick)
+  slider.addEventListener('mouseleave', handleExit)
+  slider.addEventListener('mouseup', handleUnclick)
+  slider.addEventListener('mousemove', handleMoving)
 </script>
 
   </body>

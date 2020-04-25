@@ -28,8 +28,8 @@ A 30 day JavaScript challenge with no jQuery, no pre-processors and no framework
 [Day 22 - Follow Along Link Highlighter](#-day-22---follow-along-link-highlighter)
 [Day 23 - Speech Synthesis](#-day-23---speech-synthesis)
 [Day 24 - Sticky Nav](#-day-24---sticky-nav)
-
-
+[Day 26 - Stripe Follow Along Dropdown - Stripe Part 2](#-day-26---stripe-follow-along-dropdown---stripe-part-2)
+[Day 27 - Click and Drag to Scroll](#-day-27---click-and-drag-to-scroll)
 
 
 
@@ -628,3 +628,14 @@ Transforming one dropdown box in the navigation bar to be used for all nav dropd
 - Hover parent `<li>`
 - `.cool > li` all direct <li> descendents of cool class.
 - When entering into a **named functions** the value of `this` changes, when entering into an **arrow function** this is inherited from the parents.
+
+---
+
+## Day 27 - Click and Drag to Scroll
+
+Horiztonally scrolling divs.
+
+![](https://imgur.com/pkVd3Mz.jpeg)
+
+- `e.pageX` - finding the location on page excluding margin (x co-ordinates)
+- `scrollLeft` practice.
