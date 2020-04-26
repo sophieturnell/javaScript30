@@ -534,12 +534,26 @@ New learnings:
 
 ## Day 21 - Geolocation based Speedometer and Compass
 
+![](https://imgur.com/fgQG9iA.jpeg)
+
 - Uses co-ordinates, heading and speed.
-- Heading is like a compass - how many degrees north you are pointing.
+- Heading is direction - how many degrees north you are facing.
 - Can fake co-ordinates but not heading or speed.
 
-- Use iOS simulator in xcode - unknown error occurred. 
-COME BACK TO THIS WHEN FIXED.
+- Good instructions of how to pass warning messages when opening.
+
+- Use iOS simulator in xCode. xCode > Open Developer Tools > Simulator.
+
+- STILL STRUGGLING WITH xCode - my first time using and the menus seem to be different from the versions when I google.
+- Debug menu no longer has a Location option - haven't found the new way to change this yet.
+
+- `navigator.geolocation.watchPosition()` - gives position changing over time.
+- `navigator.geolocation.getCurrentPosition()` - gives position once`
+- accuracy given in number of meters
+- heading - direction in degrees relative to north
+- speed in kph
+
+- **Success Callback** when user allows something, the callback will run.
 
 ---
 
