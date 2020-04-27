@@ -653,3 +653,13 @@ Horiztonally scrolling divs.
 
 - `e.pageX` - finding the location on page excluding margin (x co-ordinates)
 - `scrollLeft` practice.
+
+---
+
+## Day 28 - Video Speed Controller UI
+
+Changing the playback rate of a video using a controller.
+
+![](https://imgur.com/HrKw0uT.jpeg)
+
+- Similar to the fundraising bar exercise but good practice with finding the location on the page.

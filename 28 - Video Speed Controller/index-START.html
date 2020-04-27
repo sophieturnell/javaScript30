@@ -6,15 +6,37 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+  <h1>Vanilla JavaScript - Video Speed Controller UI</h1>
   <div class="wrapper">
-    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop controls></video>
+    <video class="flex" width="765" height="430" 
+      src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop controls></video>
+      <!-- add "autoplay" between loop & controls -->
     <div class="speed">
       <div class="speed-bar">1×</div>
     </div>
   </div>
 
 <script>
+  const speed = document.querySelector('.speed') // whole speed div
+  const bar = document.querySelector('.speed-bar')
+  const video = document.querySelector('.flex')
+
+  function handleMove(e) {
+      // CALCULATE MOUSE DISTANCE FROM TOP OF BAR
+      const y = e.pageY - this.offsetTop //shows how far we are from top of bar
+      const percent = y / this.offsetHeight // number as decimal
+      // CREATE UPPER & LOWER BOUNDS OF SPEED OF VIDEO PLAYBACK
+      const min = 0.4
+      const max = 4
+      const height = Math.round(percent * 100) + "%" //number as %
+      // AT 0% PLAY AT 0.4X, AT 100% PLAY AT 4X SPEED 
+      const playbackRate = percent * (max - min) + min
+      bar.style.height = height
+      bar.textContent = playbackRate.toFixed(2) + "x"
+      video.playbackRate = playbackRate
+    }
+
+  speed.addEventListener('mousemove', handleMove)
 </script>
 </body>
 </html>
