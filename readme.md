@@ -663,3 +663,35 @@ Changing the playback rate of a video using a controller.
 ![](https://imgur.com/HrKw0uT.jpeg)
 
 - Similar to the fundraising bar exercise but good practice with finding the location on the page.
+
+---
+
+## Day 29 - Countdown Timer
+
+```JavaScript
+function timer(seconds) {
+  setInterval(function() { // Pauses when you scroll
+    seconds --
+  }, 1000)
+}
+```
+
+- 
+- `setInterval()` doesn't run immediately, runs after first second.
+- Really good refresher on time. `setInterval()`, `clearInterval()`, `data-...` called with `this.dataset`
+
+-`Date.now()` new syntax to give current time (returns number of milliseconds since Jan 1st 1970)
+- `new Date()` converts to current date "timestamp".
+- Put this into a variable(e.g. `x`) to call `x.getDate()`, `x.getDay()`, `x.getMonth()`.
+
+- Changing title of browser tab using `document.title`
+- `timestamps`
+
+- If there is an attribute of `name="..."` on a div, it can be called using the value of name only as below.
+![](https://imgur.com/BkTaeYX.jpeg)
+This works for nested values too. You can select the input like this: `document.customform.minutes`
+```JavaScript
+<form name="customForm" id="custom">
+        <input type="text" name="minutes" placeholder="Enter Minutes">
+      </form>
+```
