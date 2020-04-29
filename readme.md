@@ -668,6 +668,31 @@ Changing the playback rate of a video using a controller.
 
 ## Day 29 - Countdown Timer
 
+Creating a countdown timer with preset buttons and a "Enter minutes" field.
+
+![](https://imgur.com/EndJAHI.jpeg)
+
+- This activity is one of the more substatial tasks.
+
+- Running order:
+  - The event listeners detect a click or submit event.
+  - The `startTimerButton` or `startTimerInput` function is run.
+  - `startTimerButton` parses the minutes (string) entered from the dataset attribute and passes this to the `timer` function. (`startTimerInput` also runs the `timer` function).
+  - The `timer` function:
+    - Clears any previously running timers.
+    - Finds the start and finish time .
+    - Runs the `displayTimeLeft` and `displayEndTime` functions which calculate the times a display them in the correct format.
+    - Sets the intervals to refresh the time.
+  
+Notes:
+- Good refresher on time. `setInterval()`, `clearInterval()`, `data-...` called with `this.dataset`.
+- `setInterval()` doesn't run immediately, (runs after first second) so run `displayTimeLeft` on line 14 before the interval timer starts running.
+- `new Date()` converts to current date "timestamp".
+- Put this into a variable(e.g. `x`) to call `x.getDate()`, `x.getDay()`, `x.getMonth()`.
+- `Date.now()` new syntax to give current time (returns number of milliseconds since Jan 1st 1970).
+
+- This will pause when you scroll in some browsers so use the code in the solution instead.
+
 ```JavaScript
 function timer(seconds) {
   setInterval(function() { // Pauses when you scroll
@@ -676,22 +701,15 @@ function timer(seconds) {
 }
 ```
 
-- 
-- `setInterval()` doesn't run immediately, runs after first second.
-- Really good refresher on time. `setInterval()`, `clearInterval()`, `data-...` called with `this.dataset`
-
--`Date.now()` new syntax to give current time (returns number of milliseconds since Jan 1st 1970)
-- `new Date()` converts to current date "timestamp".
-- Put this into a variable(e.g. `x`) to call `x.getDate()`, `x.getDay()`, `x.getMonth()`.
-
-- Changing title of browser tab using `document.title`
-- `timestamps`
-
 - If there is an attribute of `name="..."` on a div, it can be called using the value of name only as below.
+
 ![](https://imgur.com/BkTaeYX.jpeg)
+
 This works for nested values too. You can select the input like this: `document.customform.minutes`
 ```JavaScript
 <form name="customForm" id="custom">
         <input type="text" name="minutes" placeholder="Enter Minutes">
       </form>
 ```
+
+- Changing title of browser tab using `document.title`.

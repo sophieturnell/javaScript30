@@ -11,7 +11,7 @@ function timer(seconds) {
   // FIND TIMES & DISPLAY
   const now = Date.now() // TIME STARTED (in milliseconds)
   const then = now + seconds * 1000 // TIME TO FINISH
-  displayTimeLeft(seconds) //Shows total seconds immediately (before interval timer starts)
+  displayTimeLeft(seconds) //Shows total seconds BEFORE interval timer starts
   displayEndTime(then) // Shows end time
   
   // COUNTDOWN & DISPLAY INTERVALS
