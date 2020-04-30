@@ -720,6 +720,7 @@ This works for nested values too. You can select the input like this: `document.
 
 ## Day 30 - Whack A Mole Game
 
+![](https://imgur.com/5MWDR4Q.jpeg)
 
 - Revision of `Math.random()`, `Math.floor()`, `Math.round`, `setInterval()`,`setTimeout()`
 - `isTrusted` lives inside the event attributes. The click event can be simulated but if it is this will show as `isTrusted: false`, a true click will show `isTrusted: true`.
