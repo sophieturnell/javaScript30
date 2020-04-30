@@ -36,6 +36,61 @@
   const holes = document.querySelectorAll('.hole');
   const scoreBoard = document.querySelector('.score');
   const moles = document.querySelectorAll('.mole');
+  let lastHole
+  let timeUp = false // game over when true
+  let score = 0
+
+  // CALC RANDOM TIME FOR MOLES FOR POP UP
+  function randomTime(min, max) {
+    return Math.round(Math.random() * (max - min) + min)
+  }
+
+  // CALC RANDOM HOLE
+  function randomHole(holes){ //all holes from query selector above
+    const idx = Math.floor(Math.random() * holes.length)
+    const hole = holes[idx]
+    // STOP MOLE POPPING UP IN THE SAME PLACE AGAIN STRAIGHT AWAY
+    if(hole === lastHole){
+      console.log('same hole bud')
+      return randomHole(holes)
+    }
+    lastHole = hole
+    return hole
+  }
+
+  // POP MOLES UP & DOWN
+  function peep(){
+    const time = randomTime(200, 1000) //200milliseconds - 1 second
+    const hole = randomHole(holes)
+    hole.classList.add("up")
+    // REMOVE MOLES
+    setTimeout(() => {
+      hole.classList.remove("up")
+      // REPEAT POP UP
+      if(!timeUp) peep()
+    }, time)
+  }
+
+  // NEW GAME
+  function startGame(){
+    // RESET SCORE, TIMER
+    scoreBoard.textContent = 0
+    timeUp = false
+    score = 0
+    // START TIMER & MOLES
+    peep()
+    setTimeout(() => timeUp = true, 10000) //10 secs
+  }
+
+  // HIT MOLE
+  function bonk(e){
+    if(!e.isTrusted) return //prevents cheaters simulating clicks
+    score++
+    this.classList.remove('up')
+    scoreBoard.textContent = score
+  }
+
+  moles.forEach(mole => mole.addEventListener('click', bonk))
 
 </script>
 </body>

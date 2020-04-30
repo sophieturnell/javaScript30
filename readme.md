@@ -30,6 +30,8 @@ A 30 day JavaScript challenge with no jQuery, no pre-processors and no framework
 [Day 24 - Sticky Nav](#-day-24---sticky-nav)
 [Day 26 - Stripe Follow Along Dropdown - Stripe Part 2](#-day-26---stripe-follow-along-dropdown---stripe-part-2)
 [Day 27 - Click and Drag to Scroll](#-day-27---click-and-drag-to-scroll)
+[Day 28 - Video Speed Controller UI](#-day-28---video-speed-controller-UI)
+[Day 29 - Countdown Timer](#-day-29---countdown-timer)
 
 
 
@@ -713,3 +715,13 @@ This works for nested values too. You can select the input like this: `document.
 ```
 
 - Changing title of browser tab using `document.title`.
+
+---
+
+## Day 30 - Whack A Mole Game
+
+
+- Revision of `Math.random()`, `Math.floor()`, `Math.round`, `setInterval()`,`setTimeout()`
+- `isTrusted` lives inside the event attributes. The click event can be simulated but if it is this will show as `isTrusted: false`, a true click will show `isTrusted: true`.
+
+- Further improvements: high score board, expert levels (reduced time), 
